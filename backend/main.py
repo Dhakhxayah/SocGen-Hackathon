@@ -22,7 +22,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # local hackathon build — lock down before any real deployment
+    allow_origins=["https://soc-gen-hackathon.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
