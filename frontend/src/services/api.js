@@ -33,8 +33,8 @@ export const triggerLiveIncident = () =>
 export const runSimulate = (n_events = 750) =>
   api.post(`/simulate?n_events=${n_events}&run_analysis=true`, {}, { timeout: 120000 }).then(r => r.data)
 export const reprocess = () => api.post('/reprocess').then(r => r.data)
-export const reportUrl = `${import.meta.env.VITE_API_URL || '/api'}/report'`
+export const reportUrl = `${import.meta.env.VITE_API_URL || '/api'}/report`
 export const fullExportUrl = `${import.meta.env.VITE_API_URL || '/api'}/report/full-export`
-export const pdfReportUrl = '/api/report/pdf'
+export const pdfReportUrl = `${import.meta.env.VITE_API_URL || '/api'}/report/pdf`
 
 export default api
