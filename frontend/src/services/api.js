@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   timeout: 30000,
 })
 
@@ -33,8 +33,8 @@ export const triggerLiveIncident = () =>
 export const runSimulate = (n_events = 750) =>
   api.post(`/simulate?n_events=${n_events}&run_analysis=true`, {}, { timeout: 120000 }).then(r => r.data)
 export const reprocess = () => api.post('/reprocess').then(r => r.data)
-export const reportUrl = '/api/report'
-export const fullExportUrl = '/api/report/full-export'
+export const reportUrl = `${import.meta.env.VITE_API_URL || '/api'}/report'`
+export const fullExportUrl = `${import.meta.env.VITE_API_URL || '/api'}/report/full-export`
 export const pdfReportUrl = '/api/report/pdf'
 
 export default api
